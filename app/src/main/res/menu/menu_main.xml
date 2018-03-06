@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_read"
+        android:checked="true"
+        android:icon="@mipmap/ic_read"
+        android:orderInCategory="100"
+        android:title="阅读"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_music"
+        android:icon="@mipmap/ic_music"
+        android:orderInCategory="200"
+        android:title="音乐"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_find"
+        android:icon="@mipmap/ic_find"
+        android:orderInCategory="300"
+        android:title="发现"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/menu_more"
+        android:icon="@mipmap/ic_more"
+        android:orderInCategory="400"
+        android:title="更多"
+        app:showAsAction="never" />
+
+</menu>
