@@ -21,6 +21,7 @@ class MainFragment : Fragment() {
     private var mParam2: String? = null
 
     lateinit var navigationView: BottomNavigationView
+    var index: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,8 +38,10 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        if (index == 0) replaceFragment(MainUi.id_content, ReadFragment.newInstance("", ""))
         navigationView.setOnNavigationItemSelectedListener { item ->
-            when (item?.itemId) {
+            index = item.itemId
+            when (index) {
                 R.id.menu_read -> {
                     replaceFragment(MainUi.id_content, ReadFragment.newInstance("", ""))
                 }

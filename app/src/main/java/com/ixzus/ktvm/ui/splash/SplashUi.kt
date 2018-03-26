@@ -20,7 +20,7 @@ class SplashUi : AnkoComponent<SplashFragment> {
                 bottomMargin = dip(32)
             }
             imageView {
-                val url = "http://www.samsung-wallpapers.com/uploads/allimg/150401/1-150401215Z0.jpg"
+                val url = "http://www.pstxg.com/UploadFiles/201504/2015042140831785.jpg"
                 scaleType = ImageView.ScaleType.CENTER_CROP
 //                imageResource = R.mipmap.ic_launcher
                 loadImgFromUrl(url)
