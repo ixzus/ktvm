@@ -1,9 +1,9 @@
 package com.ixzus.ktvm
 
 import android.app.Application
-import com.ixzus.ktvm.ext.DelegatesExt
-import com.ixzus.ktvm.log.ReleaseTree
-import com.ixzus.ktvm.log.ThreadAwareDebugTree
+import com.ixzus.ktvm.helper.ext.DelegatesExt
+import com.ixzus.ktvm.helper.log.ReleaseTree
+import com.ixzus.ktvm.helper.log.ThreadAwareDebugTree
 import io.objectbox.BoxStore
 import timber.log.Timber
 

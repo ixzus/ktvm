@@ -7,6 +7,4 @@ import com.bumptech.glide.module.AppGlideModule
  * Created by Administrator on 2018/3/2.
  */
 @GlideModule
-class MyAppGlideModule : AppGlideModule() {
-
-}
+class MyAppGlideModule : AppGlideModule()
