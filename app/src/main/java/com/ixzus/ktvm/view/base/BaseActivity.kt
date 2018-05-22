@@ -3,6 +3,7 @@ package com.ixzus.ktvm.view.base
 import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import dagger.android.AndroidInjection
 
 abstract class BaseActivity : AppCompatActivity() {
 
@@ -10,14 +11,15 @@ abstract class BaseActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+//        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
-        setContentView(getLayoutId())
         mContext = this
-        initView()
-        loadData()
+//        setContentView(getLayoutId())
+//        initView()
+//        loadData()
     }
 
-    abstract fun loadData()
-    abstract fun initView()
-    abstract fun getLayoutId(): Int
+//    abstract fun loadData()
+//    abstract fun initView()
+//    abstract fun getLayoutId(): Int
 }

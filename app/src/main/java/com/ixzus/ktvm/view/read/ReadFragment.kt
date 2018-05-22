@@ -16,7 +16,6 @@ import com.ixzus.ktvm.R
 import com.ixzus.ktvm.adapter.KtAdapter
 import com.ixzus.ktvm.helper.ext.loadImgFromUrl
 import com.ixzus.ktvm.model.data.GankModel
-import com.ixzus.ktvm.model.remote.DaggerNetComponent
 import com.ixzus.ktvm.model.remote.net.ApiService
 import com.ixzus.ktvm.model.repository.GankRepository
 import com.ixzus.ktvm.model.repository.ReadViewModel
@@ -60,7 +59,6 @@ class ReadFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        DaggerNetComponent.create().inject(this)
         viewModelFactory = Injection.provideViewModelFactory(gankRepository)
         readViewModel = ViewModelProviders.of(this, viewModelFactory).get(ReadViewModel::class.java)
         subscribeUi(readViewModel)
