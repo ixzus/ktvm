@@ -1,6 +1,7 @@
 package com.ixzus.ktvm.di
 
 import com.ixzus.ktvm.App
+import com.ixzus.ktvm.model.remote.NetModule
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import dagger.android.support.AndroidSupportInjectionModule
@@ -13,7 +14,8 @@ import dagger.android.support.AndroidSupportInjectionModule
 @Component(modules = arrayOf(AndroidInjectionModule::class,
         AndroidSupportInjectionModule::class,
         AllActivityModule::class,
-        AllFragmentModule::class))
+        AllFragmentModule::class,
+        NetModule::class))
 
 interface AppComponent {
     fun inject(app: App)

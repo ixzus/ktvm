@@ -21,6 +21,8 @@ import com.ixzus.ktvm.model.repository.GankRepository
 import com.ixzus.ktvm.model.repository.ReadViewModel
 import com.ixzus.ktvm.view.base.BaseFragment
 import com.ixzus.ktvm.viewmodel.Injection
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import org.jetbrains.anko.AnkoContext
 import org.jetbrains.anko.find
 import org.jetbrains.anko.support.v4.ctx
@@ -64,39 +66,43 @@ class ReadFragment : BaseFragment() {
         subscribeUi(readViewModel)
     }
 
+    var isLoading: Boolean = false
     fun subscribeUi(readViewModel: ReadViewModel) {
-        readViewModel.getAndroid("10", "1").observe(this,
-                Observer<List<GankModel.AndroidResult>> { data ->
-                    if (null != data) {
+        readViewModel.getAndroid("10", "1")
+                .subscribeOn(Schedulers.io())
+                .map { it.results }
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe {
+                    if (null != it) {
                         dataList = ArrayList()
-                        dataList = data
+                        dataList = it
                         updateUI(dataList)
                     }
-                    Timber.i("onChanged: " + data?.size)
-                })
-
-        readViewModel.isLoading().observe(this, Observer<Boolean> {
-            it?.let {
-                if (it) {
-                    Timber.e("加载中。。。")
-                } else {
-                    Timber.e("加载OK。。。")
+                    Timber.i("onChanged: " + it?.size)
                 }
-            }
-        })
+
+//        readViewModel.isLoading().observe(this, Observer<Boolean> {
+//            it?.let {
+//                if (it) {
+//                    Timber.e("加载中。。。")
+//                } else {
+//                    Timber.e("加载OK。。。")
+//                }
+//            }
+//        })
 
     }
 
     fun refreshUI() {
-        readViewModel.getAndroid("3", "1").observe(this,
-                Observer<List<GankModel.AndroidResult>> { data ->
-                    if (null != data) {
-                        dataList = ArrayList()
-                        dataList = data
-                        updateUI(dataList)
-                    }
-                    Timber.i("onChanged: " + data?.size)
-                })
+//        readViewModel.getAndroid("3", "1").observe(this,
+//                Observer<List<GankModel.AndroidResult>> { data ->
+//                    if (null != data) {
+//                        dataList = ArrayList()
+//                        dataList = data
+//                        updateUI(dataList)
+//                    }
+//                    Timber.i("onChanged: " + data?.size)
+//                })
     }
 
 
